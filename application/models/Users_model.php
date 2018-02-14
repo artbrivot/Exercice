@@ -12,4 +12,20 @@ class Users_model extends CI_Model
 
 		return $this->db->insert($this->table);
 	}
+
+	public function check_users($nom, $mail)
+	{
+    	return $this->db->select('nom, email')
+    	            ->from($this->table)
+    	            ->where('email', $mail)
+    	            ->where('nom', $nom)
+    	            ->get()
+    	            ->result();
+	}
+
+	public function list_users()
+	{
+    $query = $this->db->get('users');
+    return $query->result();
+	}
 }

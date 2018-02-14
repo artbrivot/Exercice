@@ -13,16 +13,16 @@
         <div class='col-2'>commenter</div>
         <div class='col-4'>Voir tout les commentaires sur cette personne</div>
     </div>
-    <?php 
-    $this->load->database();
-    $query = $this->db->query('SELECT Nom, Prenom, Email FROM users');
-    foreach ($query->result_array() as $use){ ?>
+    <?php
+    foreach ($users as $user){ ?>
     <div class='row uselist'>
-        <div class='col-2'><?php echo $use['nom'];?></div>
-        <div class='col-2'><?php echo $use['prenom'];?></div>
-        <div class='col-2'><?php echo $use['email'];?></div>
-        <div class='col-2'><a href=index.php?action=useEdit&id=> <i class="material-icons">commenter</i></a></div>
-        <div class='col-4'><a href=index.php?action=useEdit&id=> <i class="material-icons">Voir tout les commentaires sur cette personne</i></a></div>
+        <div class='col-2'><?php echo $user->nom;?></div>
+        <div class='col-2'><?php echo $user->prenom;?></div>
+        <div class='col-2'><?php echo $user->email;?></div>
+        <?php $segments = array('logged', 'comment', $user->id); ?>
+        <?php $segfault = array('logged', 'commentary_user', $user->id); ?>
+        <div class='col-2'><a href= <?php echo site_url($segments); ?>> <i class="material-icons">commenter</i></a></div>
+        <div class='col-4'><a href=<?php echo site_url($segfault); ?>> <i class="material-icons">Voir tout les commentaires sur cette personne</i></a></div>
     </div> 
     <?php
     }

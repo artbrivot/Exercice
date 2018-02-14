@@ -6,16 +6,39 @@
 <hr>
 <div class="form-row text-center" style='margin-top: 200px'>
 	<div class='col-12'>
-		<form methode="post" action="login">
-			<p>Nom</p>
-			<input required type="text" class="form-control" name="nom" id="InputUSER01" aria-describedby="User01" placeholder="Nom">
-			<br>
-			<p>Email</p>
-			<input required stype="email" class="form-control" name="email" id="InputUSER01" aria-describedby="User01" placeholder="email">
-			<br>
-			<br>
-			<button type="submit" class="btn btn-primary">se connecter</button>
-		</form>
+		<?php
+ 
+    echo form_open('home/connectionAction');
+ 
+      $nom= array(
+ 
+        'name'=>'nom',
+ 
+        'id'=>'nom',
+ 
+        'placeholder'=>'Nom',
+ 
+        'value'=>set_value('nom')
+ 
+      );
+      echo form_input($nom);
+      $mail= array(
+ 
+        'name'=>'mail',
+ 
+        'id'=>'mail',
+ 
+        'placeholder'=>'Email',
+ 
+        'value'=>set_value('mail')
+ 
+      );
+      echo form_input($mail);
+    echo form_submit('envoi', 'Valider');
+ 
+    echo form_close();
+ 
+?>
 	</div>
 </div>
 

@@ -6,19 +6,18 @@
 <hr>
 <br>
 <br>
-<p class="text-center">commentaire sur ...</p>
 <div class="container">
     <br>
     <div class='row uselist title'>
         <div class='col-4'>Nom de l'auteur du commentaire</div>
-        <div class='col-4'>Prénom de l'auteur du commentaire</div>
+        <div class='col-4'>Mail de l'auteur du commentaire</div>
         <div class='col-4'>commentaire</div>
     </div>
-    <?php foreach ($uselog as $use){ ?>
+    <?php foreach ($coms as $com){ ?>
     <div class='row uselist'>
-        <div class='col-4'><?php echo $use['date'];?></div>
-        <div class='col-4'><?php echo $use['heure_debut'];?></div>
-        <div class='col-4'><?php echo $use['heure_debut'];?></div>
+        <div class='col-4'><?php echo $com->writername;?></div>
+        <div class='col-4'><?php echo $com->writermail;?></div>
+        <div class='col-4'><?php echo $com->commentaire;?></div>
     </div> 
     <?php
     }
